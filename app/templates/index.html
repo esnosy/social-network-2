@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+<form method="post" action="/create_post">
+    <textarea name="text"></textarea>
+    <input type="submit" value="Post">
+</form>
+<ul>
+    {% for post in posts %}
+    <li><a href="/profile/{{ post.author.username }}">{{ post.author.username }}</a>: {{ post.text }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
